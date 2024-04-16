@@ -4,7 +4,7 @@ import Sidebar from "../components/sidebar";
 
 interface UnsplashImage {
   urls: {
-    small: string; // URL for the small-sized image
+    small: string; 
   }
 }
 
@@ -26,7 +26,7 @@ function Assgn() {
     // Fetch images from Unsplash API with the current page number
     const fetchImages = async () => {
       try {
-        const response = await fetch(`https://api.unsplash.com/search/photos?page=${currentPage}&query=office&per_page=9&client_id=lzgvPd7e-kjsL6TJvd7XRlzlGGtU6cEnf-A8uLIZzas`);
+        const response = await fetch(`https://api.unsplash.com/search/photos?page=${currentPage}&query=office&per_page=9&client_id=${ApnaAccessKeyDaalIdhar}`);
         const data = await response.json();
         console.log(data)
         setImages(data.results);
@@ -36,7 +36,7 @@ function Assgn() {
     };
 
     fetchImages();
-  }, [location.search, currentPage]); // Add currentPage to the dependency array
+  }, [location.search, currentPage]); 
 
   useEffect(() => {
     // Change page number every 10 seconds
@@ -44,8 +44,8 @@ function Assgn() {
       setCurrentPage((prevPage) => (prevPage % 1000) + 1); // Modulo 1000 ensures page number cycles from 1 to 1000
     }, 10000);
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, []); // Empty dependency array to run effect only once
+    return () => clearInterval(intervalId); 
+  }, []); 
 
   return (
     <div className="adminContainer">
