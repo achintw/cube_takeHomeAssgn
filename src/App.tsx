@@ -3,10 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import {lazy} from 'react'
 import Loader from "./components/loader"
 
-
-// import Dashboard from './pages/dashboard'
-// instead of this ^ we will load it lazy 
-
+// lazy loading
 const Assgn = lazy(()=>import("./pages/assgn"))
 
 function App() {
@@ -15,13 +12,6 @@ function App() {
       <Suspense fallback={<Loader/>}>
       <Routes>
         <Route path="/admin/assgn" element={<Assgn/>}/>
-
-        {/* Charts */}
-
-
-        {/* Apps */}
-
-        
       </Routes>
       </Suspense>
     </Router>
